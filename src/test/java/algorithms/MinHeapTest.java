@@ -75,4 +75,33 @@ class MinHeapTest {
         assertTrue(heap.getTracker().getComparisons() > 0);
         assertTrue(heap.getTracker().getSwaps() > 0);
     }
+    @Test
+    public void testExtractMinOnEmptyHeap() {
+        MinHeap heap = new MinHeap(5);
+        assertThrows(IllegalStateException.class, heap::extractMin);
+    }
+
+    @Test
+    public void testPeekOnEmptyHeap() {
+        MinHeap heap = new MinHeap(5);
+        assertThrows(IllegalStateException.class, heap::peek);
+    }
+
+    @Test
+    public void testDecreaseKeyOnInvalidIndex() {
+        MinHeap heap = new MinHeap(5);
+        heap.insert(10);
+        assertThrows(IndexOutOfBoundsException.class, () -> heap.decreaseKey(5, 1));
+    }
+
+    @Test
+    public void testMergeWithEmptyHeap() {
+        MinHeap heap1 = new MinHeap(5);
+        heap1.insert(10);
+
+        MinHeap heap2 = new MinHeap(5);
+        heap1.merge(heap2);
+
+        assertEquals(10, heap1.peek());
+    }
 }
