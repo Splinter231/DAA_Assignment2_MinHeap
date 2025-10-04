@@ -37,6 +37,8 @@ public class BenchmarkRunner {
                     tracker.getSwaps(),
                     tracker.getArrayAccesses()
             );
+
+            tracker.exportToCSV("docs/performance-plots/minheap_performance.csv", "MinHeap", n);
         }
 
         System.out.println("\n=== Testing additional MinHeap functions ===");
@@ -63,13 +65,12 @@ public class BenchmarkRunner {
         heap2.insert(4);
 
         heap1.merge(heap2);
-        System.out.println("Merged heap min: " + heap1.peek()); // ожидаем 1
+        System.out.println("Merged heap min: " + heap1.peek());
 
         System.out.println("Extracting all elements after merge:");
         while (!heap1.isEmpty()) {
             System.out.print(heap1.extractMin() + " ");
         }
         System.out.println();
-
     }
 }

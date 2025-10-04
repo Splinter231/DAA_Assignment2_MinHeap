@@ -1,5 +1,8 @@
 package metrics;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class PerformanceTracker {
     private long comparisons;
     private long swaps;
@@ -63,5 +66,21 @@ public class PerformanceTracker {
         memoryAllocations = 0;
         startTime = 0;
         endTime = 0;
+    }
+    public void exportToCSV(String filePath, String algorithmName, int inputSize) {
+        try (FileWriter writer = new FileWriter(filePath, true)) {
+            writer.append(String.format(
+                    "%s,%d,%.3f,%d,%d,%d,%d%n",
+                    algorithmName,
+                    inputSize,
+                    getExecutionTimeMillis(),
+                    getComparisons(),
+                    getSwaps(),
+                    getArrayAccesses(),
+                    getMemoryAllocations()
+            ));
+        } catch (IOException e) {
+            System.err.println("Error writing to CSV: " + e.getMessage());
+        }
     }
 }
