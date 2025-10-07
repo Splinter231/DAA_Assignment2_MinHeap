@@ -15,19 +15,19 @@ The implementation includes metrics tracking, unit testing, and CLI benchmarking
 * JUnit tests covering all edge cases
 * CSV export ready for performance plots
  
-## Project Structure
-DAA_Assignment2_MinHeap/
-├── src/main/java/
-│ ├── algorithms/MinHeap.java
-│ ├── metrics/PerformanceTracker.java
-│ └── cli/BenchmarkRunner.java
-├── src/test/java/
-│ └── algorithms/MinHeapTest.java
-├── docs/
-│ ├── analysis-report.pdf
-│ └── performance-plots/
-├── README.md
-└── pom.xml
+## Project Structure  
+DAA_Assignment2_MinHeap/  
+├── src/main/java/  
+│ ├── algorithms/MinHeap.java  
+│ ├── metrics/PerformanceTracker.java  
+│ └── cli/BenchmarkRunner.java  
+├── src/test/java/  
+│ └── algorithms/MinHeapTest.java  
+├── docs/  
+│ ├── analysis-report.pdf  
+│ └── performance-plots/  
+├── README.md  
+└── pom.xml  
 
 ## Usage
 
